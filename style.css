@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large")
+  }
+  
+  .container {
+    width: 300px;
+    background-image: url("https://freevector-images.s3.amazonaws.com/uploads/vector/preview/41356/Vector4free-White-Gold-Background-Revisi2-DP0822_generated.jpg");
+    padding: 20px;
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000000;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    color: #000000;
+  }
+  
+  input[type="text"], input[type="password"] {
+    width: 80%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+  }
+  
+  input[type="submit"] {
+    width: 50%;
+    height: 40px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #ffd700;
+    color: #000000;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+  }
