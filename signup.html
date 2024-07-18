@@ -16,25 +16,26 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Signup</h1>
+		<h1>Sign up</h1>
 		<form onsubmit="return validation()">
 			<div class="form-group">
-			<label>First Name:</label>
-			<input type="text"required id="firstname" name="firstname"placeholder="Enter Your First Name"class="form-control">
-			<span id="fnameerror" class ="text-danger font-weight-bold"></span>
+			<label>First name:</label>
+			<input type="text"required id="firstname" name="firstname"placeholder="Enter your first name"class="form-control">
+			<span id="firstnameerror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
-			<label>Last Name:</label>
-			<input type="text" id="lastname" name="lastname"placeholder="Enter Your Last Name"class="form-control">
-			<span id="lnameerror" class ="text-danger font-weight-bold"></span>
+			<label>Last name:</label>
+			<input type="text" id="lastname" name="lastname"placeholder="Enter your last name"class="form-control">
+			<span id="lastnameerror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
-			<label>Date of Birth:</label>
+			<label>Date of birth:</label>
 			<input type="date" id="dob" name="dob"class="form-control">
 		</div>
 		<div class="form-group">
 			<label>Age:</label>
-			<input type="number" id="age" name="age"placeholder="Enter Your Age"class="form-control">
+			<input type="number" id="age" name="age"placeholder="Enter your age"class="form-control">
+			<span id="ageerror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
 			<label>Gender:</label>
@@ -46,18 +47,18 @@
 			<label>Other</label>
 		</div>
 		<div class="form-group">
-			<label>Phone Number:</label>
-			<input type="tel" id="phone" name="phone"placeholder="Enter Your Contact Number"class="form-control">
+			<label>Phone number:</label>
+			<input type="tel" id="phone" name="phone"placeholder="Enter your contact number"class="form-control">
 			<span id="mobileerror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
-			<label>Email ID:</label>
-			<input type="email" id="email" name="email"placeholder="Enter Your Email Here"class="form-control">
+			<label>Email id:</label>
+			<input type="email" id="email" name="email"placeholder="Enter your email here"class="form-control">
 			<span id="emailerror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
 			<label>Address:</label>
-			<textarea id="address" name="address"placeholder="Enter Your Address"class="form-control"></textarea>
+			<textarea id="address" name="address"placeholder="Enter your address"class="form-control"></textarea>
 		</div>
 		<div class="form-group">
 			<label>State:</label>
@@ -69,48 +70,50 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label>City:</label>
+			<label>District:</label>
 			<select id="city" name="city"class="form-control">
 				<option value="">Select</option>
-				<option value="city1">Kochi</option>
+				<option value="city1">Ernakulam</option>
 				<option value="city2">Chennai</option>
 				<option value="city3">Panaji</option>
 			</select>
 		</div>
 		<div class="form-group">
 			<label>Username:</label>
-			<input type="text" id="username"required name="username"placeholder="Enter Username" class="form-control">
+			<input type="text" id="username"required name="username"placeholder="Enter username" class="form-control">
 			<span id="usererror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
 			<label>Password:</label>
-			<input type="password" id="password" name="password"placeholder="Enter  Password" class="form-control">
+			<input type="password" id="password" name="password"placeholder="Enter  password" class="form-control">
 			<span id="passworderror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
-			<label>Confirm Password:</label>
-			<input type="password" id="cpassword" name="confirm-password"placeholder="Re-Enter Your Password" class="form-control">
-			<span id="cpassworderror" class ="text-danger font-weight-bold"></span>
+			<label>Confirm password:</label>
+			<input type="password" id="confirmpassword" name="confirm-password"placeholder="Re-enter your password" class="form-control">
+			<span id="confirmpassworderror" class ="text-danger font-weight-bold"></span>
 		</div>
-			<input type="submit" value="Signup" class="btn btn-primary">
+			<input type="submit" value="Sign up" class="btn btn-primary">
 		</form>
 	</div>
 	<script type="text/javascript">
 		function validation(){
 		var username = document.getElementById('username').value;
 		var password = document.getElementById('password').value;
-		var cpassword = document.getElementById('cpassword').value;
+		var confirmpassword = document.getElementById('confirmpassword').value;
 		var email = document.getElementById('email').value;
 		var phone = document.getElementById('phone').value;
-		var fname = document.getElementById('firstname').value;
-		var lname = document.getElementById('lastname').value;
+		var firstname = document.getElementById('firstname').value;
+		var lastname = document.getElementById('lastname').value;
+		var age = document.getElementById('age').value; 
 
 		var usercheck = /^[A-Za-z.]{3,12}$/ ;
 		var passwordcheck = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/ ;
 		var emailcheck = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/ ;
 		var phonecheck = /^[89]\d{9}$/ ;
-		var fnamecheck = /[a-zA-Z]$/ ;
-		var lnamecheck = /[a-zA-Z]$/ ;
+		var firstnamecheck = /[a-zA-Z]$/ ;
+		var lastnamecheck = /[a-zA-Z]$/ ;
+		var agecheck = /^[0-9]{2}$/ ;
 
 		if(usercheck.test(username)){
 			document.getElementById('usererror').innerHTML =" ";
@@ -124,10 +127,10 @@
 			document.getElementById('passworderror').innerHTML ="* Password is invalid ";
 			return false;
 		}
-		if( password.match(cpassword)){
-			document.getElementById('cpassworderror').innerHTML =" ";
+		if( password.match(confirmpassword)){
+			document.getElementById('confirmpassworderror').innerHTML =" ";
 		}else{
-			document.getElementById('cpassworderror').innerHTML ="* Password is not matching!";
+			document.getElementById('confirmpassworderror').innerHTML ="* Password is not matching!";
 			return false;
 	}
 	if( emailcheck.test(email)){
@@ -139,19 +142,25 @@
 		if( phonecheck.test(phone)){
 			document.getElementById('mobileerror').innerHTML =" ";
 		}else{
-			document.getElementById('mobileerror').innerHTML ="* Phone Number is invalid ";
+			document.getElementById('mobileerror').innerHTML ="* Phone number is invalid ";
 			return false;
 		}
-		if( fnamecheck.test(fname)){
-			document.getElementById('fnameerror').innerHTML =" ";
+		if( firstnamecheck.test(firstname)){
+			document.getElementById('firstnameerror').innerHTML =" ";
 		}else{
-			document.getElementById('fnameerror').innerHTML ="* First Name is not valid ";
+			document.getElementById('firstnameerror').innerHTML ="* First name is not valid ";
 			return false;
 		}
-		if( lnamecheck.test(lname)){
-			document.getElementById('lnameerror').innerHTML =" ";
+		if( lastnamecheck.test(lastname)){
+			document.getElementById('lastnameerror').innerHTML =" ";
 		}else{
-			document.getElementById('lnameerror').innerHTML ="* Last Name is not valid ";
+			document.getElementById('lastnameerror').innerHTML ="* Last name is not valid ";
+			return false;
+		}
+		if( agecheck.test(age)){
+			document.getElementById('ageerror').innerHTML =" ";
+		}else{
+			document.getElementById('ageerror').innerHTML ="* Age is not valid ";
 			return false;
 		}
 }
