@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Signup Page</title>
+	<link rel="stylesheet" href="style1.css">
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -15,6 +16,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+	<nav class="nav-bar">
+        <a href="#" class="logo">
+            <img src="https://img.freepik.com/free-vector/business-logo-template-minimal-branding-design-vector_53876-136229.jpg" alt="Logo"style="width:50px;height:50px;" style="position: absolute; top: 0; left: 0;">
+          </a>
+        <ul class="nav-links">
+			<li><a href="home.html">Home</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+            <li><a href="login.html">Sign in</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+        </ul>
+    </nav>
 	<div class="container">
 		<h1>Sign up</h1>
 		<form onsubmit="return validation()">
@@ -61,23 +73,19 @@
 			<textarea id="address" name="address"placeholder="Enter your address"class="form-control"></textarea>
 		</div>
 		<div class="form-group">
-			<label>State:</label>
-			<select id="state" name="state"class="form-control">
-				<option value="">Select</option>
-				<option value="state1">Kerala</option>
-				<option value="state2">Tamilnadu</option>
-				<option value="state3">Goa</option>
-			</select>
+			<form name="myform" id="myForm">
+				Select Country: <select name="state" id="countySel" size="1"class="form-control">
+				<option value="" selected="selected">Select Country</option>
+				</select>
+		<div class="form-group">
+			Select State: <select name="countrya" id="stateSel" size="1"class="form-control">
+				<option value="" selected="selected">Please select country first</option>
+				</select>
 		</div>
 		<div class="form-group">
-			<label>District:</label>
-			<select id="city" name="city"class="form-control">
-				<option value="">Select</option>
-				<option value="city1">Ernakulam</option>
-				<option value="city2">Chennai</option>
-				<option value="city3">Panaji</option>
-			</select>
-		</div>
+			Select District: <select name="district" id="districtSel" size="1"class="form-control">
+				<option value="" selected="selected">Please select State first</option>
+				</select>
 		<div class="form-group">
 			<label>Username:</label>
 			<input type="text" id="username"required name="username"placeholder="Enter username" class="form-control">
@@ -96,6 +104,21 @@
 			<input type="submit" value="Sign up" class="btn btn-primary">
 		</form>
 	</div>
+	<footer class="footer">
+        <div class="footer-top">
+            <p>&copy; 2024 Company Name. All rights reserved.</p>
+            <ul class="social-icons">
+                <li><a href="#" class="facebook"></a></li>
+                <li><a href="#" class="twitter"></a></li>
+                <li><a href="#" class="instagram"></a></li>
+              </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Address: 123 Main St, Anytown, USA 12345</p>
+            <p>Phone: 555-555-5555</p>
+            <p>Email: [info@example.com]</p>
+        </div>
+    </footer>
 	<script type="text/javascript">
 		function validation(){
 		var username = document.getElementById('username').value;
@@ -165,6 +188,59 @@
 		}
 }
 	</script>
-
+		<script>
+		var todaytDate = new Date();
+		var month = todaytDate.getMonth() + 1;
+		var year = todaytDate.getFullYear();
+		var tdate = todayDate.getDate();
+		if(month < 10){
+			month = "0" + month;
+		}
+		if(month < 10){
+			tdate = "0" + tdate;
+		}
+		var maxDate = year + "-" + month + "-" + tdate;
+		document.getElementById("dob").setAttribute("max", maxDate);
+	</script>
+<script>
+	var stateObject = {
+		"India": { "Delhi": ["South delhi", "North delhi"],
+		"Kerala": ["Thiruvananthapuram", "Palakkad"],
+		"Goa": ["North goa", "South goa"],
+		},
+		"Australia": {
+		"South Australia": ["Dunstan", "Mitchell"],
+		"Victoria": ["Altona", "Euroa"]
+		}, "Canada": {
+		"Alberta": ["Acadia", "Bighorn"],
+		"Columbia": ["Washington", "Cauca"]
+		},
+		}
+		window.onload = function () {
+		var countySel = document.getElementById("countySel"),
+		stateSel = document.getElementById("stateSel"),
+		districtSel = document.getElementById("districtSel");
+		for (var country in stateObject) {
+		countySel.options[countySel.options.length] = new Option(country, country);
+		}
+		countySel.onchange = function () {
+		stateSel.length = 1; // remove all options bar first
+		districtSel.length = 1; // remove all options bar first
+		if (this.selectedIndex < 1) return; // done 
+		for (var state in stateObject[this.value]) {
+		stateSel.options[stateSel.options.length] = new Option(state, state);
+		}
+		}
+		countySel.onchange(); // reset in case page is reloaded
+		stateSel.onchange = function () {
+		districtSel.length = 1; // remove all options bar first
+		if (this.selectedIndex < 1) return; // done 
+		var district = stateObject[countySel.value][this.value];
+		for (var i = 0; i < district.length; i++) {
+		districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
+		}
+		}
+		}
+</script>
 </body>
 </html>

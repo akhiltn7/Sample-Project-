@@ -1,47 +1,41 @@
-body {
-	font-family: Arial, sans-serif;
-	background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large")
+.nav-bar {
+    background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large");
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-.container {
-	width: 50%;
-	margin: 40px auto;
-	padding: 20px;
-	background-image: url('https://static.vecteezy.com/system/resources/thumbnails/008/020/629/small_2x/banner-web-template-abstract-blue-and-golden-curved-lines-overlapping-layer-design-on-dark-blue-background-luxury-style-vector.jpg');
-	border: 1px solid #000000;
-    border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.logo {
+    margin-right: 20px;
 }
-
-h1 {
-	text-align: center;
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.nav-links li {
+    margin-right: 20px;
+}
+.nav-links a {
     color: #fff;
+    text-decoration: none;
 }
-
-label {
-	display: block;
-	margin-bottom: 10px;
+.nav-bar .logo {
+    width: 1px; /* reduce the width of the logo */
+    height: 1px; /* reduce the height of the logo */
+margin-right: 5px; /* add some space between the logo and the navigation links */
+}
+.footer {
+    background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large");
     color: #fff;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
-	width: 95%;
-	padding: 10px;
-	margin-bottom: 20px;
-	border: 1px solid #ccc;
-}
-
-input[type="submit"] {
-	background-color: #1960da;
-	color: #fff;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-    display: block;
-   margin: 0 auto;
-}
-
-input[type="submit"]:hover {
-	background-color: #3e8e41;
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

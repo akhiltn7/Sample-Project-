@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Calculator</title>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Simple Calculator</h1>
+    <div class="input-field">
+      <input type="number" id="num1" value="0">
+    </div>
+    <div class="input-field">
+      <input type="number" id="num2" value="0">
+    </div>
+    <div class="button-container">
+      <button class="button" id="add">+</button>
+      <button class="button" id="subtract">-</button>
+      <button class="button" id="multiply">*</button>
+      <button class="button" id="divide">/</button>
+    </div>
+    <div class="result-field">
+      <input type="text" id="result" readonly>
+    </div>
+  </div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      width: 200px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .input-field {
+      margin-bottom: 10px;
+    }
+    .button {
+      width: 50px;
+      height: 30px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #eee;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #ccc;
+    }
+    .result-field {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+  <button id="change-color-btn">Change Color</button>
+
+  <script src="calculator.js"></script>
+</body>
+</html>

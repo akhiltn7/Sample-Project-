@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>   
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="#" class="logo">
+            <img src="https://img.freepik.com/free-vector/business-logo-template-minimal-branding-design-vector_53876-136229.jpg" alt="Logo"style="width:50px;height:50px;" style="position: absolute; top: 0; left: 0;">
+          </a>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+            <li><a href="login.html">Sign in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us using the form below:</p>
+        <form>
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" class="form-input" required>
+
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" class="form-input" required>
+
+            <label for="message" class="form-label">Message:</label>
+            <textarea id="message" class="form-input" required></textarea>
+
+            <input type="submit" value="Send Message" class="form-submit">
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="footer-top">
+            <p>&copy; 2024 Company Name. All rights reserved.</p>
+            <ul class="social-icons">
+                <li><a href="#" class="facebook"></a></li>
+                <li><a href="#" class="twitter"></a></li>
+                <li><a href="#" class="instagram"></a></li>
+              </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>Address: 123 Main St, Anytown, USA 12345</p>
+            <p>Phone: 555-555-5555</p>
+            <p>Email: [info@example.com]</p>
+        </div>
+    </footer>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+       .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+       .form-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+       .form-input {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+       .form-input:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+       .form-submit {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+       .form-submit:hover {
+            background-color: #3e8e41;
+        }
+        .nav-bar {
+            background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large");
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            margin-right: 20px;
+        }
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav-bar .logo {
+            width: 1px; /* reduce the width of the logo */
+            height: 1px; /* reduce the height of the logo */
+        margin-right: 5px; /* add some space between the logo and the navigation links */
+        }
+        .footer {
+            background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large");
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+
+</body>
+</html>

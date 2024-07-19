@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="task-input" placeholder="Enter a task">
+    <button id="add-task-btn">Add Task</button>
+    <ul id="task-list"></ul>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#task-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+}
+
+#add-task-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-task-btn:hover {
+    background-color: #3e8e41;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#task-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #ccc;
+}
+</style>
+<script>
+    let taskList = [];
+
+document.getElementById("add-task-btn").addEventListener("click", addTask);
+
+function addTask() {
+    let taskInput = document.getElementById("task-input");
+    let task = taskInput.value.trim();
+    if (task!== "") {
+        taskList.push({ task: task, completed: false });
+        taskInput.value = "";
+        renderTaskList();
+    }
+}
+
+function renderTaskList() {
+    let taskListElement = document.getElementById("task-list");
+    taskListElement.innerHTML = "";
+    taskList.forEach((task, index) => {
+        let taskElement = document.createElement("li");
+        taskElement.textContent = task.task;
+        if (task.completed) {
+            taskElement.classList.add("completed");
+        }
+        taskElement.addEventListener("click", () => {
+            task.completed =!task.completed;
+            renderTaskList();
+        });
+        taskListElement.appendChild(taskElement);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", renderTaskList);
+</script>
+</body>
+</html>
