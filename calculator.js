@@ -42,3 +42,4 @@ const button = document.getElementById('change-color-btn');
 button.addEventListener('click', function() {
   document.body.style.backgroundColor = 'skyblue';
 });
+

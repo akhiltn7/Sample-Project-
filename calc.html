@@ -20,6 +20,7 @@
     </div>
     <div class="result-field">
       <input type="text" id="result" readonly>
+      <button id="change-color-btn">Change Color</button>
     </div>
   </div>
   <style>
@@ -53,9 +54,10 @@
       font-size: 24px;
       font-weight: bold;
     }
+  img {
+  transition: transform 0.5s; /* add a 0.5s transition to the transform property */
+}
   </style>
-  <button id="change-color-btn">Change Color</button>
-
   <script src="calculator.js"></script>
 </body>
 </html>

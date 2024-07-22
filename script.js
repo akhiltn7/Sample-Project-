@@ -1,18 +1,19 @@
-const username = document.getElementById('username')
-const password = document.getElementById('password')
-const form = document.getElementById('form')
-const errorElement = document.getElementById('error')
+function validation(){
+    var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
 
-form.addEventListener('submit', (e) =>{
-    let messages = []
-    if (password.value.length <= 6){
-        messages.push('Password should be longer than 6 characters')
+    var usercheck = /^[A-Za-z.]{3,12}$/ ;
+	var passwordcheck = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/ ;
+    if(usercheck.test(username)){
+        document.getElementById('usererror').innerHTML =" ";
+    }else{
+        document.getElementById('usererror').innerHTML ="* Username is invalid ";
+        return false;
     }
-    if (password.value.length >= 12){
-        messages.push('Password should be Within 12 characters')
+    if( passwordcheck.test(password)){
+        document.getElementById('passworderror').innerHTML =" ";
+    }else{
+        document.getElementById('passworderror').innerHTML ="* Password is invalid ";
+        return false;
     }
-    if(messages.length >0){
-        e.preventDefault()
-        errorElement.innerText = messages.join(', ')
-    }
-})
+}

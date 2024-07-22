@@ -27,7 +27,7 @@
             <li><a href="contactus.html">Contact us</a></li>
         </ul>
     </nav>
-	<div class="container">
+	<div class="container">---
 		<h1>Sign up</h1>
 		<form onsubmit="return validation()">
 			<div class="form-group">
@@ -42,16 +42,15 @@
 		</div>
 		<div class="form-group">
 			<label>Date of birth:</label>
-			<input type="date" id="dob" name="dob"class="form-control">
-		</div>
-		<div class="form-group">
+			<input type="date" required id="dob-input" name="dob"class="form-control">
 			<label>Age:</label>
-			<input type="number" id="age" name="age"placeholder="Enter your age"class="form-control">
+			<input type="text" id="age-input" value="" readonly class="form-control"/>
+			<button onclick="showAge()">Calculate Age</button>
 			<span id="ageerror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
 			<label>Gender:</label>
-			<input type="radio" id="male" name="gender" value="male">
+			<input type="radio" required id="male" name="gender" value="male">
 			<label>Male</label>
 			<input type="radio" id="female" name="gender" value="female">
 			<label>Female</label>
@@ -70,25 +69,25 @@
 		</div>
 		<div class="form-group">
 			<label>Address:</label>
-			<textarea id="address" name="address"placeholder="Enter your address"class="form-control"></textarea>
+			<textarea id="address" required name="address"placeholder="Enter your address"class="form-control"></textarea>
 		</div>
 		<div class="form-group">
 			<form name="myform" id="myForm">
-				Select Country: <select name="state" id="countySel" size="1"class="form-control">
+				Select Country: <select name="state" required id="countySel" size="1"class="form-control">
 				<option value="" selected="selected">Select Country</option>
 				</select>
 		<div class="form-group">
-			Select State: <select name="countrya" id="stateSel" size="1"class="form-control">
+			Select State: <select name="countrya" required id="stateSel" size="1"class="form-control">
 				<option value="" selected="selected">Please select country first</option>
 				</select>
 		</div>
 		<div class="form-group">
-			Select District: <select name="district" id="districtSel" size="1"class="form-control">
+			Select district: <select name="district" required id="districtSel" size="1"class="form-control">
 				<option value="" selected="selected">Please select State first</option>
 				</select>
 		<div class="form-group">
 			<label>Username:</label>
-			<input type="text" id="username"required name="username"placeholder="Enter username" class="form-control">
+			<input type="text" id="username" name="username"placeholder="Enter username" class="form-control">
 			<span id="usererror" class ="text-danger font-weight-bold"></span>
 		</div>
 		<div class="form-group">
@@ -128,7 +127,7 @@
 		var phone = document.getElementById('phone').value;
 		var firstname = document.getElementById('firstname').value;
 		var lastname = document.getElementById('lastname').value;
-		var age = document.getElementById('age').value; 
+		var age = document.getElementById('age-input').value; 
 
 		var usercheck = /^[A-Za-z.]{3,12}$/ ;
 		var passwordcheck = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/ ;
@@ -155,8 +154,8 @@
 		}else{
 			document.getElementById('confirmpassworderror').innerHTML ="* Password is not matching!";
 			return false;
-	}
-	if( emailcheck.test(email)){
+		}
+		if( emailcheck.test(email)){
 			document.getElementById('emailerror').innerHTML =" ";
 		}else{
 			document.getElementById('emailerror').innerHTML ="* Email is invalid ";
@@ -186,7 +185,7 @@
 			document.getElementById('ageerror').innerHTML ="* Age is not valid ";
 			return false;
 		}
-}
+	}
 	</script>
 		<script>
 		var todaytDate = new Date();
@@ -200,12 +199,12 @@
 			tdate = "0" + tdate;
 		}
 		var maxDate = year + "-" + month + "-" + tdate;
-		document.getElementById("dob").setAttribute("max", maxDate);
-	</script>
-<script>
+		document.getElementById("dob-input").setAttribute("max", maxDate);
+		</script>
+	<script>
 	var stateObject = {
 		"India": { "Delhi": ["South delhi", "North delhi"],
-		"Kerala": ["Thiruvananthapuram", "Palakkad"],
+		"Kerala": ["Thiruvananthapuram", "Kollam", "Pathanamthitta", "Allapuzha", "Kottayam", "Idukki","Eranakulam", "Thrissur", "Palakkad", "Malappuram", "Kozhikode", "Wayanad" ,"Kannur", "Kasaragod"],
 		"Goa": ["North goa", "South goa"],
 		},
 		"Australia": {
@@ -240,7 +239,26 @@
 		districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
 		}
 		}
+	}
+</script>
+<script>
+	function calculateAge() {
+		const dobInput = document.getElementById("dob-input");
+  		const dob = new Date(dobInput.value);
+  		const today = new Date();
+  		const age = today.getFullYear() - dob.getFullYear();
+  		const m = today.getMonth() - dob.getMonth();
+  		if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+    	age--;
+  		}
+  		return age;
 		}
+
+		function showAge() {
+      const ageInput = document.getElementById("age-input");
+      const age = calculateAge();
+      ageInput.value = age;
+    }
 </script>
 </body>
 </html>

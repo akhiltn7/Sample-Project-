@@ -1,3 +1,8 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://www.shutterstock.com/image-vector/abstract-white-grey-square-pattern-600nw-2140949293.jpg");
+  }
+  
 .nav-bar {
     background-image: url("https://pbs.twimg.com/amplify_video_thumb/1616310532684025857/img/1A4BOXsDT2rD4zXV.jpg:large");
     padding: 1em;
@@ -39,3 +44,13 @@ margin-right: 5px; /* add some space between the logo and the navigation links *
     justify-content: space-between;
     align-items: center;
 }
+input[type="submit"] {
+    background-color: #ffd700;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #ffd700;
+    color: #000000;
+  }
